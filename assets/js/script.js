@@ -2,6 +2,7 @@ var searchTerm = document.querySelector('#myCity')
 var searchForm = document.querySelector('.submit-search')
 var searchHistoryArr = []
 
+
 /* to get the latitude and longtitude of the city  */
 var getCoords = function (city) {
   console.log(city)
@@ -28,16 +29,52 @@ var getCoords = function (city) {
           alert("Unable to connect to Open Weather");
         });
     };
+
+    function displaySearchHistory(){
+        var searchHistoryEl = document.querySelector('#search-history')
+        
+
+         var storedCity = localStorage.getItem('cityNames');
+         if (storedCity) {
+            searchHistoryArr = JSON.parse(storedCity);
+            for (var i = 0; i < searchHistoryArr.length; i++) {
+                var historyItemEl = document.createElement("li");
+                historyItemEl.textContent = searchHistoryArr[i];
+            // var lastItem = searchHistoryArr.slice(-1)[0];
+            //     var historyItemEl = document.createElement("li");
+            //     historyItemEl.textContent = lastItem;
+                // Create a button element
+      var buttonEl = document.createElement("button");
+      buttonEl.textContent = searchHistoryArr[i];
+      buttonEl.setAttribute("data-city", searchHistoryArr[i]);
+
+      // Add a click event listener to the button
+      buttonEl.addEventListener("click", function(event) {
+        var cityName = event.target.getAttribute("data-city");
+        getCoords(cityName);
+      });
+
+      // Append the button to the list item
+      historyItemEl.appendChild(buttonEl);
+
+      // Append the list item to the search history element
+      searchHistoryEl.appendChild(historyItemEl);
+                searchHistoryEl.appendChild(historyItemEl);
+            };
+         }
+        }
+    
 // to show localstorage, create a div container, say getitem, show history
   function handleFormSubmit(event){
     event.preventDefault()
     var cityName = searchTerm.value.trim()
     searchHistoryArr.push(cityName)
-    localStorage.setItem('cityNames', searchHistoryArr)
+    localStorage.setItem('cityNames', JSON.stringify(searchHistoryArr))
+    displaySearchHistory();
     getCoords(cityName)
   }
   
-  // getCoords(city);
+  
   
     /* getForecast will use the coordinates from the getCoord function */
     var getForecast = function (latitude, longitude) {
