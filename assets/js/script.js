@@ -1,7 +1,10 @@
-var city;
+var searchTerm = document.querySelector('#myCity')
+var searchForm = document.querySelector('.submit-search')
+var searchHistoryArr = []
 
 /* to get the latitude and longtitude of the city  */
 var getCoords = function (city) {
+  console.log(city)
     var geoUrl =
         "https://api.openweathermap.org/geo/1.0/direct?q=" +
         city +
@@ -25,8 +28,16 @@ var getCoords = function (city) {
           alert("Unable to connect to Open Weather");
         });
     };
+// to show localstorage, create a div container, say getitem, show history
+  function handleFormSubmit(event){
+    event.preventDefault()
+    var cityName = searchTerm.value.trim()
+    searchHistoryArr.push(cityName)
+    localStorage.setItem('cityNames', searchHistoryArr)
+    getCoords(cityName)
+  }
   
-  getCoords(city);
+  // getCoords(city);
   
     /* getForecast will use the coordinates from the getCoord function */
     var getForecast = function (latitude, longitude) {
@@ -65,6 +76,7 @@ var getCoords = function (city) {
     /* to render the weather forecast on the destinations.html page */
     var displayForecast = function(array) {
       var weatherContainerEl = document.getElementById('weather-container');
+      weatherContainerEl.innerHTML = "";
       array.forEach(function(day){
   
         /* create weather card element which will contain weather info for each day */
@@ -84,9 +96,10 @@ var getCoords = function (city) {
         var dateArr = day.dt_txt.split(" ")[0].split("-");
         var date = dateArr[2] + "/" + dateArr[1];
         dateEl.textContent = date;
-  
+        console.log(day.weather[0])
         /* weather image */
-        imageEl.src = "https://openweathermap.org/img/wn/"+ day.weather[0].icon + "@2x.png"
+        imageEl.setAttribute('src', `https://openweathermap.org/img/wn/${day.weather[0].icon}.png`)
+        // imageEl.src = "https://openweathermap.org/img/wn/"+ day.weather[0].icon 
           
         /* rendering weather data on html */
         temperatureEl.textContent = "Temperature: " + day.main.temp + "°C";
@@ -98,3 +111,6 @@ var getCoords = function (city) {
         weatherContainerEl.appendChild(weatherCardEl);
       })  
     }
+
+
+    searchForm.addEventListener('submit', handleFormSubmit)
