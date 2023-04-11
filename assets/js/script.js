@@ -37,16 +37,13 @@ var getCoords = function (city) {
          var storedCity = localStorage.getItem('cityNames');
          if (storedCity) {
             searchHistoryArr = JSON.parse(storedCity);
-            for (var i = 0; i < searchHistoryArr.length; i++) {
-                var historyItemEl = document.createElement("li");
-                historyItemEl.textContent = searchHistoryArr[i];
-            // var lastItem = searchHistoryArr.slice(-1)[0];
-            //     var historyItemEl = document.createElement("li");
-            //     historyItemEl.textContent = lastItem;
+            
+            var lastItem = searchHistoryArr.slice(-1)[0];
                 // Create a button element
-      var buttonEl = document.createElement("button");
-      buttonEl.textContent = searchHistoryArr[i];
-      buttonEl.setAttribute("data-city", searchHistoryArr[i]);
+                var buttonEl = document.createElement("button");
+                buttonEl.textContent = lastItem;
+                
+      
 
       // Add a click event listener to the button
       buttonEl.addEventListener("click", function(event) {
@@ -54,15 +51,20 @@ var getCoords = function (city) {
         getCoords(cityName);
       });
 
-      // Append the button to the list item
-      historyItemEl.appendChild(buttonEl);
+      // // Append the button to the list item
+      // historyItemEl.appendChild(buttonEl);
+      buttonEl.style.width = '200px'; // sets button width
+      buttonEl.style.width = '200px'; // sets button height
+      buttonEl.style.background = "wheat"; // sets button background to wheat
+      buttonEl.style.color = "red"; // sets button text to red
+      buttonEl.style.fontSize = "20px"; // sets button font size to 20px
 
       // Append the list item to the search history element
-      searchHistoryEl.appendChild(historyItemEl);
-                searchHistoryEl.appendChild(historyItemEl);
+      searchHistoryEl.appendChild(buttonEl);
+              
             };
          }
-        }
+        
     
 // to show localstorage, create a div container, say getitem, show history
   function handleFormSubmit(event){
@@ -136,7 +138,7 @@ var getCoords = function (city) {
         console.log(day.weather[0])
         /* weather image */
         imageEl.setAttribute('src', `https://openweathermap.org/img/wn/${day.weather[0].icon}.png`)
-        // imageEl.src = "https://openweathermap.org/img/wn/"+ day.weather[0].icon 
+    
           
         /* rendering weather data on html */
         temperatureEl.textContent = "Temperature: " + day.main.temp + "°C";
@@ -148,6 +150,7 @@ var getCoords = function (city) {
         weatherContainerEl.appendChild(weatherCardEl);
       })  
     }
+
 
 
     searchForm.addEventListener('submit', handleFormSubmit)

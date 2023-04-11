@@ -1,0 +1,46 @@
+.body{
+    background-color: gray;
+}
+.header{
+    text-align: center;
+    font-size: 20px;
+    background-color: gray;
+}
+
+.container {
+    text-align: center;
+}
+  
+  
+#weather-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+    
+}
+#weather-card {
+    flex: 1 1 2%;
+    flex-wrap: wrap;
+    display: inline-block;
+    width: 10em;
+    margin: 0.3em;
+    border: 0.2em solid black;
+    padding-bottom: 1em;
+  }
+
+#button {
+    font-size: 30px;
+}
+
+#recentlySearched{
+    color: white;
+    text-decoration: underline;
+}
+
+.weatherDiv h2 {
+    text-decoration: underline;
+    color: white;
+}
+
+  

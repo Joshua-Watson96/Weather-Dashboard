@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 
-<body>
+<body class ="body">
   <header class="header">
     <h1>Weather Dashboard</h1>
   </header>
@@ -21,10 +21,18 @@
     </form>
   </div>
 
+<div class = "searchHistoryDiv">
+  <h2 id = "recentlySearched">Recently Searched</h2>
   <div id = "search-history"> </div>
+</div>
 
+<div class = "weatherDiv">
+  <h2> 5 Day Forecast</h2>
+  <h3 id = "cityTitle"></h3>
   <div id="weather-container"></div>
-  <!--APIKEY bd781bdf88957dbac055696eb9416ac7 -->
+  </div>
+  
+  
   <script src="./assets/js/script.js"></script>
 </body>
 
