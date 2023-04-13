@@ -112,7 +112,13 @@ var getCoords = function (city) {
         });
     };
     
-    /* to render the weather forecast on the destinations.html page */
+    var displayTodayForecast = function(array){
+      var todayContainerEl = document.getElementById('today-container')
+      // todayContainerEl.innerHTML = "";
+      todayContainerEl.textContent = array;
+    }
+
+    /* to render the weather forecast on the index.html page */
     var displayForecast = function(array) {
       var weatherContainerEl = document.getElementById('weather-container');
       weatherContainerEl.innerHTML = "";

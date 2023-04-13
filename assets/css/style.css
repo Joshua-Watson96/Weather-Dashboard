@@ -38,7 +38,12 @@
     text-decoration: underline;
 }
 
-.weatherDiv h2 {
+.todayDiv h2 {
+    text-decoration: underline;
+    color: white;
+}
+
+.weatherDiv h4 {
     text-decoration: underline;
     color: white;
 }
