@@ -1,6 +1,7 @@
 <Weather-Dashboard>
 
 ## Deployed Site
+https://joshua-watson96.github.io/Weather-Dashboard/
 
 
 ## Description
