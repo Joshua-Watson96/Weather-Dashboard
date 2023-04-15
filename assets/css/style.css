@@ -1,17 +1,19 @@
+/* Sets the body elements background color */
 .body{
     background-color: gray;
 }
+/* Sets the properties for the header element */
 .header{
     text-align: center;
     font-size: 20px;
     background-color: gray;
 }
-
+/* sets the container class text to center */
 .container {
     text-align: center;
 }
   
-  
+/* sets the properties for the weather-container ID */
 #weather-container {
     display: flex;
     flex-direction: row;
@@ -19,7 +21,10 @@
     
     
 }
+
+/* sets the properties for the weather-card ID */
 #weather-card {
+    color: white;
     flex: 1 1 2%;
     flex-wrap: wrap;
     display: inline-block;
@@ -29,23 +34,43 @@
     padding-bottom: 1em;
   }
 
+  /* sets the font font size for the button ID */
 #button {
     font-size: 30px;
 }
 
+/*  sets the color and text decoration for the recently searched ID */
 #recentlySearched{
     color: white;
     text-decoration: underline;
 }
 
+/* sets the h2 in todayDiv class text-dec and color  */
 .todayDiv h2 {
     text-decoration: underline;
     color: white;
 }
 
+/* sets the weather divs h4 text-dec and color */
 .weatherDiv h4 {
     text-decoration: underline;
     color: white;
 }
 
+/* sets the cityTitle ID color */
+#cityTitle{
+    color: wheat;
+}
+
+/* sets the properties for the today-card */
+#today-card{
+    color: white;
+    flex: 1 1 2%;
+    flex-wrap: wrap;
+    display: inline-block;
+    width: 10em;
+    margin: 0.3em;
+    border: 0.2em solid black;
+    padding-bottom: 1em;
+}
   

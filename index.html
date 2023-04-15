@@ -4,16 +4,20 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<!-- head element -->
 <head>
   <title>Weather-Dashboard</title>
+  <!-- linked css file -->
   <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 
 <body class ="body">
+  <!-- website name -->
   <header class="header">
     <h1>Weather Dashboard</h1>
   </header>
 
+  <!-- div for search button -->
   <div class="container">
     <form class="submit-search">
       <input type="text" id="myCity" placeholder="Search for a city">
@@ -21,23 +25,25 @@
     </form>
   </div>
 
+  <!-- div for localstorage/search history -->
 <div class = "searchHistoryDiv">
   <h2 id = "recentlySearched">Recently Searched</h2>
   <div id = "search-history"> </div>
 </div>
 
+<!-- div for todays forecast  -->
 <div class = "todayDiv">
+  <h2> Weather for today in: <span id="cityTitle"></span> </h2>
   <div id="today-container"></div>
-  <h2> Weather for today</h2>
-  <h3 id = "cityTitle"></h3>
-</div>
+  </div>
 
+  <!-- div for 5 day forecast -->
 <div class = "weatherDiv">
   <h4> 5 Day Forecast</h2>
   <div id="weather-container"></div>
   </div>
   
-  
+  <!-- linked js file -->
   <script src="./assets/js/script.js"></script>
 </body>
 
