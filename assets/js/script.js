@@ -40,6 +40,7 @@ function displayCityName() {
 
   var lastCity = searchHistoryArr.slice(-1)[0];
   cityTitle.textContent = lastCity;
+
 }
 
 // function to display searched cities on HTML
@@ -54,10 +55,13 @@ function displaySearchHistory() {
     // Create a button element
     var buttonEl = document.createElement("button");
     buttonEl.textContent = lastItem;
+    buttonEl.setAttribute("data-city", lastItem);
 
     // Add a click event listener to the button
     buttonEl.addEventListener("click", function (event) {
       var cityName = event.target.getAttribute("data-city");
+      var cityTitle = document.getElementById("cityTitle")
+      cityTitle.textContent = cityName;
       getCoords(cityName);
     });
 

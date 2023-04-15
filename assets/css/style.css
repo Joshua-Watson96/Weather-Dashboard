@@ -1,12 +1,11 @@
 /* Sets the body elements background color */
 .body{
-    background-color: gray;
+    background-color: rgb(103, 159, 178);
 }
 /* Sets the properties for the header element */
 .header{
     text-align: center;
     font-size: 20px;
-    background-color: gray;
 }
 /* sets the container class text to center */
 .container {
@@ -41,25 +40,26 @@
 
 /*  sets the color and text decoration for the recently searched ID */
 #recentlySearched{
+    font-family: 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
     color: white;
-    text-decoration: underline;
+    
 }
 
 /* sets the h2 in todayDiv class text-dec and color  */
 .todayDiv h2 {
-    text-decoration: underline;
+    font-family: 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;;
     color: white;
 }
 
 /* sets the weather divs h4 text-dec and color */
 .weatherDiv h4 {
-    text-decoration: underline;
+    font-family: 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
     color: white;
 }
 
 /* sets the cityTitle ID color */
 #cityTitle{
-    color: wheat;
+    color: black;
 }
 
 /* sets the properties for the today-card */
